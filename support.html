@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crimson Pulse Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e1e2f, #2c003e);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #2c003e;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 89, 0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      color: crimson;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: crimson;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+    .thanks {
+      text-align: center;
+      display: none;
+      color: lime;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Support Hub</h1>
+    <form id="supportForm">
+      <input type="text" placeholder="Discord Username" required />
+      <select required>
+        <option value="">Choose Issue Type</option>
+        <option value="bug">Bug Report</option>
+        <option value="suggestion">Suggestion</option>
+        <option value="help">Help / Question</option>
+      </select>
+      <textarea placeholder="Describe your issue..." rows="5" required></textarea>
+      <button type="submit">Send Support</button>
+    </form>
+    <p class="thanks">✅ Thank you! Your support message was received.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('supportForm');
+    const thanks = document.querySelector('.thanks');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Simulate sending support
+      form.style.display = 'none';
+      thanks.style.display = 'block';
+
+      // You can connect this to your backend/email/DB later
+    });
+  </script>
+</body>
+</html>
