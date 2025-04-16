@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crimson Pulse Support</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #1e1e2f, #2c003e);
+      background: #111;
       color: #fff;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      padding: 40px;
     }
-    .container {
-      background: #2c003e;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 0, 89, 0.5);
-      max-width: 400px;
-      width: 100%;
-    }
+
     h1 {
-      text-align: center;
       color: crimson;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
-    input, select, textarea, button {
+
+    p {
+      max-width: 500px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    form {
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
       width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
+      max-width: 500px;
+      box-shadow: 0 0 12px crimson;
     }
+
+    input, select, textarea {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
     button {
-      background-color: crimson;
+      background: crimson;
       color: white;
+      font-size: 1rem;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     button:hover {
-      background-color: darkred;
-    }
-    .thanks {
-      text-align: center;
-      display: none;
-      color: lime;
-      margin-top: 15px;
+      background: #b30000;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Support Hub</h1>
-    <form id="supportForm">
-      <input type="text" placeholder="Discord Username" required />
-      <select required>
-        <option value="">Choose Issue Type</option>
-        <option value="bug">Bug Report</option>
-        <option value="suggestion">Suggestion</option>
-        <option value="help">Help / Question</option>
-      </select>
-      <textarea placeholder="Describe your issue..." rows="5" required></textarea>
-      <button type="submit">Send Support</button>
-    </form>
-    <p class="thanks">✅ Thank you! Your support message was received.</p>
-  </div>
 
-  <script>
-    const form = document.getElementById('supportForm');
-    const thanks = document.querySelector('.thanks');
+  <h1>Crimson Pulse Support</h1>
+  <p>Need help with the bot or have a suggestion? Use the form below to contact the support team!</p>
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  <form name="support" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="support" />
+    
+    <input type="text" name="username" placeholder="Your Discord Username" required />
+    
+    <select name="issue" required>
+      <option value="">-- Select Issue Type --</option>
+      <option value="bug">🐞 Bug Report</option>
+      <option value="suggestion">💡 Suggestion</option>
+      <option value="question">❓ Question / Help</option>
+      <option value="other">📁 Other</option>
+    </select>
+    
+    <textarea name="message" rows="5" placeholder="Describe your issue here..." required></textarea>
+    
+    <button type="submit">Send Support Request</button>
+  </form>
 
-      // Simulate sending support
-      form.style.display = 'none';
-      thanks.style.display = 'block';
-
-      // You can connect this to your backend/email/DB later
-    });
-  </script>
 </body>
 </html>
